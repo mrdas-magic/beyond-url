@@ -2,19 +2,15 @@
 # Dependencies
 node_modules/
 
-# Environment Variables
+# Environment Variables and Secrets
 .env
-.env.local
-.env.production
-.env.development
-.env.test
 .env.*
 !.env.example
 
 # Vercel
 .vercel/
 
-# Build Files
+# Build Output
 dist/
 build/
 .next/
@@ -32,7 +28,7 @@ pnpm-debug.log*
 Thumbs.db
 desktop.ini
 
-# VS Code and IDE
+# Editor Files
 .vscode/*
 !.vscode/extensions.json
 .idea/
@@ -43,14 +39,14 @@ temp/
 *.tmp
 *.bak
 
+# Coverage Reports
+coverage/
+
 # Cache
 .cache/
 .parcel-cache/
 
-# Test Coverage
-coverage/
-
-# Database Files
+# Local Database Files
 *.sqlite
 *.sqlite3
 *.db
