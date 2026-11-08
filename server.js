@@ -271,6 +271,10 @@ app.post("/api/preview", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Link Viewer running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Link Viewer running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
