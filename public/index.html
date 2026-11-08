@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="./elements/favicon-10.png" type="image/x-icon">
+<title>WebViewer - Even Any Type</title>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+html{scrollbar-width:none; scroll-behavior:smooth;} body{-ms-overflow-style:none;} body::-webkit-scrollbar{display:none;}
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f5f9;
+    color: #202938;
+    padding: 30px 15px;
+}
+.container {max-width: 900px; margin:auto;}
+
+header {text-align:center; margin-bottom:30px;}
+header h1 {font-family: 'Times New Roman', Times, serif; font-size:30px;}
+header p {color: #6b7280;}
+header a {text-decoration:none; color: unset;}
+
+/* Search Bar */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 650px;
+    margin: 25px auto 35px;
+    padding: 7px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.05);
+    transition: .45s ease;
+}
+.search-box:focus-within {
+    /* border-color: #93b4f8; */
+    border-color: #e2e8f0;
+    /* box-shadow: 0 4px 22px rgba(37,99,235,.10); */
+    box-shadow: 0px 20px 32px rgba(37, 99, 235, .10);
+}
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #202938;
+}
+.search-box input::placeholder {color: #9ca3af;}
+.search-box button {
+    border: none;
+    outline: none;
+    /* background: #2563eb darkred; */
+    /* background: linear-gradient(180deg, #39385f 0%, #292846 100%); */
+    background: linear-gradient(180deg, #3e380a, #000000);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .25s ease;
+    white-space: nowrap;
+}
+.search-box button:hover {
+    /* background: #1d4ed8; #292846; */
+    background: linear-gradient(180deg, darkred, #450000);
+}
+.search-box button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+.search-feedback {
+    text-align: center;
+    font-size: 13px;
+    color: #64748b;
+    margin-top: -23px;
+    margin-bottom: 25px;
+    min-height: 18px;
+}
+.search-feedback.error {color: #dc2626;}
+
+.link-list {display: flex; flex-direction: column; gap: 18px;}
+.card {
+    display: flex;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    min-height: 160px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.06);
+    transition: .25s;
+    animation: cardReveal .5s ease both;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.card-image {
+    width: 240px;
+    min-width: 240px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 20px;
+    min-width: 0;
+    flex: 1;
+}
+.card-content h2 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    overflow-wrap: anywhere;
+}
+.card-content p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 12px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+.site-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.site-name img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+.visit-link {
+    display: inline-block;
+    /* background: #2563eb;  */
+    /* background: linear-gradient(180deg, #32a1f1 0%, #007aff 100%); */
+    color: #292846;
+    padding: 9px 0px;
+    text-decoration: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 0.0625rem;
+    text-underline-offset: 0.65rem;
+    transition: .2s;
+}
+.visit-link:hover {
+    /* background: #1d4ed8; */
+    text-decoration: underline;
+    text-decoration-color: darkred /* #292846 */;
+    text-decoration-thickness: 0.0625rem;
+    text-underline-offset: 0.25rem;
+}
+.status {text-align: center; padding: 25px; color: #64748b;}
+.error {color: #dc2626;}
+.loading-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background: white;
+    border-radius: 14px;
+    color: #64748b;
+    font-size: 14px;
+    gap: 10px;
+    animation: cardReveal .3s ease both;
+}
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dbeafe;
+    /* border-top-color: #2563eb; */
+    border-top-color: #01060f;
+    border-radius: 50%;
+    animation: spin 1.1s linear infinite;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media(max-width: 600px) {
+    body {padding: 20px 12px; background-image: url(./elements/bg-04.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+    header h1 {font-size: 24px;}
+    .search-box {gap: 5px; padding: 6px; margin-top: 22px;}
+    .search-box input {padding: 11px 8px; font-size: 13px;}
+    .search-box button {padding: 11px 13px; font-size: 12px;}
+    .card {flex-direction: column;}
+    .card-image {width: 100%; height: 210px; min-width: 100%;}
+    .card-image img {height: 210px; min-height: 210px;}
+    .card-content {padding: 16px;}
+    .footer-note {color: #eaeaf5;}
+}
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+.footer-note {font-size:8px; letter-spacing:1px; color: #999aad; margin:50px 10px 20px; text-align:center;}
+</style>
+</head>
+
+<body>
+
+<!-- MAIN Content -->
+<div class="container">
+
+    <header>
+        <h1><a href="/"> Beyond <i>the</i> URL </a></h1>
+    </header>
+
+    <!-- Instant Link Search -->
+    <div class="search-box">
+        <input
+            type="text"
+            inputmode="url"
+            id="url-input"
+            placeholder="Paste a website link here..."
+            autocomplete="url"
+            aria-label="Website URL"
+        >
+        <button type="button" id="preview-btn"> Preview ◉ </button> <!-- →  -->
+    </div>
+    <div
+        id="search-feedback"
+        class="search-feedback"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <!-- Manual web links (eikhane dewa gulo always-website-e-preview obosthai thakbe) -->
+    <div id="source-links" hidden>
+        <a href="https://www.biography.com/crime/a74111360/elizabeth-holmes-theranos-fraud"></a>
+    </div>
+    <div id="link-list" class="link-list">
+        <div class="status">Loading website previews...</div>
+    </div>
+
+</div>
+
+
+
+<script>
+const sourceLinks = document.querySelectorAll(
+    "#source-links a"
+);
+
+const linkList = document.getElementById("link-list");
+const urlInput = document.getElementById("url-input");
+const previewBtn = document.getElementById("preview-btn");
+const searchFeedback = document.getElementById("search-feedback");
+
+// Prevent duplicate previews.
+const loadedUrls = new Set();
+
+// Search debounce timer.
+let searchTimer = null;
+
+// Normalize and validate URL.
+function normalizeUrl(value) {
+
+    let url = value.trim();
+
+    if (!url) {
+        throw new Error("Please enter a website URL.");
+    }
+    if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
+    }
+
+    const parsedUrl = new URL(url);
+
+    if (
+        !["http:", "https:"].includes(parsedUrl.protocol) ||
+        !parsedUrl.hostname.includes(".") &&
+        parsedUrl.hostname !== "localhost"
+    ) {
+        throw new Error("Please enter a valid website URL.");
+    }
+
+    return parsedUrl.href;
+}
+
+function createElement(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) {
+        element.textContent = text;
+    }
+    return element;
+}
+
+function createCard(data) {
+    const card = createElement("article", "card");
+
+    // Image
+    const imageContainer = createElement(
+        "div",
+        "card-image"
+    );
+
+    if (data.image) {
+
+        const image = createElement("img");
+
+        image.src = data.image;
+        image.alt = data.title || "Website preview";
+        image.loading = "lazy";
+        image.referrerPolicy = "no-referrer";
+
+        image.onerror = () => {
+            image.remove();
+            if (data.favicon) {
+                const fallback = createElement("img");
+                fallback.src = data.favicon;
+                fallback.alt = "Website icon";
+                imageContainer.appendChild(fallback);
+            } else {
+                imageContainer.textContent = "No image available";
+            }
+        };
+
+        imageContainer.appendChild(image);
+
+    } else if (data.favicon) {
+        const fallback = createElement("img");
+        fallback.src = data.favicon;
+        fallback.alt = "Website icon";
+        imageContainer.appendChild(fallback);
+    } else {
+        imageContainer.textContent = "No image available";
+    }
+
+    // Content
+    const content = createElement(
+        "div",
+        "card-content"
+    );
+
+    const site = createElement(
+        "div",
+        "site-name"
+    );
+
+    if (data.favicon) {
+        const icon = createElement("img");
+        icon.src = data.favicon;
+        icon.alt = "";
+        site.appendChild(icon);
+    }
+    site.appendChild(
+        document.createTextNode(
+            data.siteName || new URL(data.url).hostname
+        )
+    );
+
+    const title = createElement(
+        "h2",
+        "",
+        data.title || "Untitled Website"
+    );
+
+    const description = createElement(
+        "p",
+        "",
+        data.description || "No description available."
+    );
+
+    const button = createElement(
+        "a",
+        "visit-link",
+        " Visit here buddy"
+        // "◉ →"
+    );
+
+    button.href = data.url;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
+
+    content.append(site, title, description, button);
+
+    card.append(imageContainer, content);
+
+    return card;
+}
+
+// Error card.
+function createErrorCard(url) {
+    const card = createElement("div", "card");
+    const content = createElement(
+        "div",
+        "card-content"
+    );
+    content.appendChild(
+        createElement("h2", "error", "Preview unavailable")
+    );
+    content.appendChild(
+        createElement("p", "", url)
+    );
+    content.appendChild(
+        createElement(
+            "p",
+            "",
+            "Unable to fetch website metadata. You can still visit the website."
+        )
+    );
+    const button = createElement(
+        "a",
+        "visit-link",
+        "Visit here buddy"
+    );
+
+    button.href = url;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
+
+    content.appendChild(button);
+    card.appendChild(content);
+
+    return card;
+}
+
+// Loading indicator.
+function createLoadingCard() {
+    const loading = createElement(
+        "div",
+        "loading-card"
+    );
+    const spinner = createElement(
+        "span",
+        "loader"
+    );
+    const message = createElement(
+        "span",
+        "",
+        ""
+        // ( "Fetching website preview..." ) -> eituk age dewa chilo loading circle animation hoitoh ar sathe ei text ta uttho
+    );
+
+    loading.append(spinner, message);
+
+    return loading;
+}
+
+// Fetch preview from existing API.
+async function loadPreview(url) {
+
+    try {
+        const response = await fetch("/api/preview", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ url })
+        });
+
+        if (!response.ok) {
+            throw new Error("Unable to fetch preview");
+        }
+        const data = await response.json();
+        data.url = url;
+        return createCard(data);
+    } catch (error) {
+        console.error("Preview error:", error);
+        return createErrorCard(url);
+    }
+}
+
+// Display preview.
+async function addPreview(url) {
+
+    // Prevent duplicate URLs.
+    if (loadedUrls.has(url)) {
+        searchFeedback.textContent =
+            "This Link has already been previewed :)";
+        searchFeedback.className = "search-feedback";
+        return;
+    }
+
+    loadedUrls.add(url);
+    searchFeedback.textContent = "";
+    const loadingCard = createLoadingCard();
+
+    // NEW: Insert loading card at the top.
+    linkList.prepend(loadingCard);
+
+    previewBtn.disabled = true;
+    previewBtn.textContent = "Loading...";
+
+    try {
+
+        const card = await loadPreview(url);
+
+        // NEW: Replace loading card at the same top position.
+        loadingCard.replaceWith(card);
+
+        urlInput.value = "";
+
+        searchFeedback.textContent = "Website preview loaded successfully.";
+        searchFeedback.className = "search-feedback";
+
+    } catch (error) {
+        loadedUrls.delete(url);
+        loadingCard.remove();
+        searchFeedback.textContent =
+            "Something went wrong. Please try again.";
+        searchFeedback.className =
+            "search-feedback error";
+    } finally {
+        previewBtn.disabled = false;
+        previewBtn.textContent = "Preview ◉";
+    }
+}
+
+// Search function.
+function searchPreview() {
+    clearTimeout(searchTimer);
+    try {
+        const url = normalizeUrl(urlInput.value);
+        addPreview(url);
+    } catch (error) {
+        searchFeedback.textContent = error.message;
+        searchFeedback.className =
+            "search-feedback error";
+    }
+}
+
+// Instant preview when a valid URL is pasted or typed.
+urlInput.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchFeedback.textContent = "";
+    searchFeedback.className = "search-feedback";
+
+    if (!urlInput.value.trim()) return;
+    searchTimer = setTimeout(() => {
+
+        try {
+            const url = normalizeUrl(urlInput.value);
+            if (!loadedUrls.has(url)) {
+                addPreview(url);
+            }
+        } catch (error) {
+
+            // Wait until the URL becomes valid.
+        }
+    }, 450);
+});
+
+// Immediate preview on paste.
+urlInput.addEventListener("paste", () => {
+    clearTimeout(searchTimer);
+    setTimeout(() => {
+
+        if (urlInput.value.trim()) {
+            searchPreview();
+        }
+
+    }, 0);
+});
+
+// Preview button.
+previewBtn.addEventListener(
+    "click",
+    searchPreview
+);
+
+// Enter key support.
+urlInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        searchPreview();
+    }
+});
+
+// NEW: Automatically select the entire URL on mouse hover.
+urlInput.addEventListener("mouseenter", () => {
+    if (urlInput.value.trim()) {
+        urlInput.select();
+    }
+
+});
+
+// Load original HTML links.
+async function initializeViewer() {
+    const links = [...sourceLinks];
+    linkList.innerHTML = "";
+    if (!links.length) {
+        linkList.appendChild(
+            createElement("div", "status", "No links found.")
+        );
+        return;
+    }
+
+    // Preserve original URL order.
+    const urls = links.map(link => link.href);
+    urls.forEach(url => loadedUrls.add(url));
+    const results = await Promise.all(
+        urls.map(url => loadPreview(url))
+    );
+    results.forEach(card => {
+        linkList.appendChild(card);
+    });
+
+}
+
+initializeViewer();
+</script>
+
+
+<footer class="footer-note">
+    <!-- ◯ Beyond the URL: See What’s Inside -->
+    ◯ Beyond the URL: See What’s Waiting for You
+</footer>
+
+</body>
+</html>
