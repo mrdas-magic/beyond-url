@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="./elements/favicon-10.png" type="image/x-icon">
-<title>WebViewer - Even Any Type</title>
+<title>WebViewer - Beyond the URL</title>
 
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
@@ -17,7 +16,6 @@ body {
     padding: 30px 15px;
 }
 .container {max-width: 900px; margin:auto;}
-
 header {text-align:center; margin-bottom:30px;}
 header h1 {font-family: 'Times New Roman', Times, serif; font-size:30px;}
 header p {color: #6b7280;}
@@ -25,34 +23,17 @@ header a {text-decoration:none; color: unset;}
 
 /* Search Bar */
 .search-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    max-width: 650px;
-    margin: 25px auto 35px;
-    padding: 7px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,.05);
-    transition: .45s ease;
-}
+    display: flex; align-items: center; gap: 10px; max-width: 650px; 
+    margin: 25px auto 35px; padding: 7px; background: #fff; border: 1px solid #e2e8f0; 
+    border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.05); transition: .45s ease;}
+
 .search-box:focus-within {
     /* border-color: #93b4f8; */
     border-color: #e2e8f0;
     /* box-shadow: 0 4px 22px rgba(37,99,235,.10); */
     box-shadow: 0px 20px 32px rgba(37, 99, 235, .10);
 }
-.search-box input {
-    flex: 1;
-    min-width: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 12px 14px;
-    font-size: 14px;
-    color: #202938;
-}
+.search-box input {flex:1; min-width:0; border:none; outline:none; background:transparent; padding:12px 14px; font-size:14px; color: #202938;}
 .search-box input::placeholder {color: #9ca3af;}
 .search-box button {
     border: none;
@@ -72,31 +53,13 @@ header a {text-decoration:none; color: unset;}
     /* background: #1d4ed8; #292846; */
     background: linear-gradient(180deg, darkred, #450000);
 }
-.search-box button:disabled {
-    opacity: .6;
-    cursor: not-allowed;
-}
-.search-feedback {
-    text-align: center;
-    font-size: 13px;
-    color: #64748b;
-    margin-top: -23px;
-    margin-bottom: 25px;
-    min-height: 18px;
-}
+.search-box button:disabled {opacity: .6; cursor: not-allowed;}
+.search-feedback {text-align:center; font-size:13px; color:#64748b; margin-top:-23px; margin-bottom:25px; min-height:18px;}
 .search-feedback.error {color: #dc2626;}
-
 .link-list {display: flex; flex-direction: column; gap: 18px;}
 .card {
-    display: flex;
-    background: white;
-    border-radius: 14px;
-    overflow: hidden;
-    min-height: 160px;
-    box-shadow: 0 3px 15px rgba(0,0,0,.06);
-    transition: .25s;
-    animation: cardReveal .5s ease both;
-}
+    display:flex; background: white; border-radius:14px; overflow:hidden; 
+    min-height:160px; box-shadow: 0 3px 15px rgba(0,0,0,.06); transition: .25s; animation: cardReveal .5s ease both;}
 .card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0,0,0,.10);
@@ -111,51 +74,13 @@ header a {text-decoration:none; color: unset;}
         transform: translateY(0);
     }
 }
-.card-image {
-    width: 240px;
-    min-width: 240px;
-    background: #e5e7eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-.card-image img {
-    width: 100%;
-    height: 100%;
-    min-height: 160px;
-    object-fit: cover;
-}
-.card-content {
-    padding: 20px;
-    min-width: 0;
-    flex: 1;
-}
-.card-content h2 {
-    font-size: 17px;
-    margin-bottom: 10px;
-    overflow-wrap: anywhere;
-}
-.card-content p {
-    color: #6b7280;
-    line-height: 1.6;
-    font-size: 12px;
-    margin-bottom: 12px;
-    overflow-wrap: anywhere;
-}
-.site-name {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #64748b;
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-.site-name img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-}
+.card-image {width: 240px; min-width: 240px; background: #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden;}
+.card-image img {width: 100%; height: 100%; min-height: 160px; object-fit: cover;}
+.card-content {padding: 20px; min-width: 0; flex: 1;}
+.card-content h2 {font-size: 17px; margin-bottom: 10px; overflow-wrap: anywhere;}
+.card-content p {color: #6b7280; line-height: 1.6; font-size: 12px; margin-bottom: 12px; overflow-wrap: anywhere;}
+.site-name {display: flex;align-items: center; gap: 8px; color: #64748b; font-size: 12px; margin-bottom: 10px;}
+.site-name img {width: 18px; height: 18px; object-fit: contain;}
 .visit-link {
     display: inline-block;
     /* background: #2563eb;  */
@@ -210,9 +135,7 @@ header a {text-decoration:none; color: unset;}
 
 @media(max-width: 600px) {
     body {padding: 20px 12px; background-image: url(./elements/bg-04.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;}
+    background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;}
     header h1 {font-size: 24px;}
     .search-box {gap: 5px; padding: 6px; margin-top: 22px;}
     .search-box input {padding: 11px 8px; font-size: 13px;}
@@ -231,7 +154,79 @@ header a {text-decoration:none; color: unset;}
         transition-duration: .01ms !important;
     }
 }
-.footer-note {font-size:8px; letter-spacing:1px; color: #999aad; margin:50px 10px 20px; text-align:center;}
+.footer-note {font-size:8px; letter-spacing:1px; color: #999aad; margin:30px 10px 20px; text-align:center;}
+
+/** (CSS) SVG Action Button -- HistoryBookmark **/
+    .footer-actions {display:flex; align-items:center; justify-content:center; gap:12px; margin:50px 10px 20px;}
+    .footer-icon-btn {width:38px; height:38px; display:flex; align-items:center; justify-content:center; padding:7px; border: 1px solid rgba(128,128,128,0.2); border-radius:50%; background:transparent; color:inherit; cursor:pointer; transition: background .2s ease, transform .2s ease, border-color .2s ease;}
+    .footer-icon-btn svg {width:18px; height:18px; fill:none; stroke:currentColor; stroke-width: 1.75; stroke-linecap:round; stroke-linejoin:round;}
+    .footer-icon-btn:hover {background: rgba(128,128,128,0.12); border-color: rgba(128,128,128,0.12); /*border-color: rgba(128,128,128,0.4);*/ transform: translateY(-2px);}
+    .footer-icon-btn:active {transform: scale(.94);}
+    .footer-modal {position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px; background: rgba(0,0,0,.38); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); opacity:0; visibility:hidden; pointer-events:none; transition: opacity .22s ease, visibility .22s ease;}
+    .footer-modal.active {opacity:1; visibility:visible; pointer-events:auto;}
+    .footer-modal-content {position:relative; width:100%; max-width:390px; min-height:160px; padding: 28px 24px; border: 1px solid rgba(128,128,128,.2); border-radius:16px; background: var(--modal-bg, #fff); color: var(--modal-color, #222); box-shadow: 0 15px 50px rgba(0,0,0,.12); transform: translateY(10px) scale(.98); transition: transform .22s ease;}
+    .footer-modal.active .footer-modal-content {transform: translateY(0) scale(1);}
+    .footer-modal-content h3 {margin: 0 0 12px; font-size:19px; font-weight:600;}
+    .footer-modal-content p {margin:0; font-size:14px; line-height:1.7; opacity: .7;}
+    /* CLOSE BUTTON */
+    .modal-close {position:absolute; top:10px; right:13px; width:30px; height:30px; border:none; background:transparent; color:inherit; font-size:25px; font-weight:300; cursor:pointer; opacity: .65; transition: opacity .2s ease, transform .2s ease;}
+    .modal-close:hover {opacity:1; transform: rotate(90deg);}
+    /* ACCESSIBILITY */
+    @media (prefers-reduced-motion: reduce) {
+    .footer-modal, .footer-modal-content, .footer-icon-btn, .modal-close {transition: none;}
+    }
+
+
+/** (CSS) SVG Bookmark **/
+    .card {position:relative; overflow:hidden;}
+    .card-heart-btn {
+        position: absolute; bottom: 12px; right: 12px; width: 28px; height: 28px; display: flex; align-items: center; 
+        justify-content: center; border: none; border-radius: 50%; background: rgba(255, 255, 255, 0.9); color: #555; 
+        cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.85);
+        transition:
+            opacity 0.25s ease,
+            transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+            color 0.25s ease,
+            background 0.25s ease,
+            visibility 0.25s;
+    }
+    /* Show on card hover */
+    .card:hover .card-heart-btn,
+    .card:focus-within .card-heart-btn {opacity: 1; visibility: visible; transform: translateY(0) scale(1);}
+    .card-heart-btn:hover {background: #fff; color: #e63950; transform: scale(1.1);}
+    .card-heart-btn.liked {color: #e63950;}
+    .card-heart-btn.liked svg {fill: #e63950; stroke: #e63950;}
+    .card-heart-btn:active {transform: scale(0.85);}
+    .card-heart-btn:focus-visible {opacity: 1; visibility: visible; outline: 2px solid #e63950; outline-offset: 3px;}
+    /* Touch devices */ /*@media (hover: none) {.card-heart-btn {opacity: 1; visibility:visible; transform:none; }}*/
+
+    .footer-modal-content {max-height:80vh; overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none;}
+    .footer-modal-content::-webkit-scrollbar{display:none;}
+    .modal-list {display:flex; flex-direction:column; gap:12px; margin-top:18px;}
+    .history-item {display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border:1px solid rgba(128,128,128,.16); border-radius:10px; background:rgba(128,128,128,.035);}
+    .history-item a {min-width:0; color:inherit; text-decoration:none; overflow-wrap:anywhere; font-size:13px; line-height:1.5;}
+    .history-item a:hover {text-decoration:underline; text-decoration-color:darkred;}
+    .history-item small {margin-top:4px; color:#888; font-size:10px;}
+    .empty-state {padding:18px 8px; text-align:center; color:#888; font-size:13px;}
+    /* BOOKMARKS: compact horizontal list cards */
+    #bookmark-list .bookmark-card {display:flex; flex-direction:row; align-items:center; gap:14px; min-height:94px; padding:10px; border:1px solid rgba(128,128,128,.16); border-radius:12px; background:rgba(128,128,128,.035);}
+    #bookmark-list .bookmark-card .card-image {flex:0 0 88px; width:88px; height:72px; min-width:88px; border-radius:8px; overflow:hidden;}
+    #bookmark-list .bookmark-card .card-image img {width:100%; height:100%; min-height:0; object-fit:cover;}
+    #bookmark-list .bookmark-card .card-content {display:flex; flex:1; min-width:0; flex-direction:column; align-items:flex-start; gap:9px; padding:2px 4px 2px 0;}
+    #bookmark-list .bookmark-card .card-content h2 {margin:0; font-size:14px; line-height:1.4; overflow-wrap:anywhere;}
+    #bookmark-list .bookmark-actions {display:flex; align-items:center; gap:10px;}
+    #bookmark-list .bookmark-actions .visit-link {display:inline-block; margin:0; padding:7px 12px; font-size:11px;}
+    #bookmark-list .bookmark-actions .card-heart-btn {position:static; width:30px; height:30px; opacity:1; visibility:visible; transform:none; border:1px solid rgba(128,128,128,.2); background:transparent; color:inherit;}
+    #bookmark-list .bookmark-actions .card-heart-btn.liked {color:#e63950;}
+    @media(max-width:600px) {
+        #bookmark-list .bookmark-card {flex-direction:row; gap:10px; min-height:84px; padding:8px;}
+        #bookmark-list .bookmark-card .card-image {flex-basis:76px; width:76px; min-width:76px; height:66px; min-height:0;}
+        #bookmark-list .bookmark-card .card-content {padding:2px 2px 2px 0;}
+        #bookmark-list .bookmark-card .card-content h2 {font-size:13px;}
+        #bookmark-list .bookmark-actions {gap: 12px;}
+        .history-item {align-items:flex-start;}
+    }
+
 </style>
 </head>
 
@@ -239,7 +234,6 @@ header a {text-decoration:none; color: unset;}
 
 <!-- MAIN Content -->
 <div class="container">
-
     <header>
         <h1><a href="/"> Beyond <i>the</i> URL </a></h1>
     </header>
@@ -267,82 +261,166 @@ header a {text-decoration:none; color: unset;}
     <div id="source-links" hidden>
         <a href="https://www.biography.com/crime/a74111360/elizabeth-holmes-theranos-fraud"></a>
     </div>
-    <div id="link-list" class="link-list">
-        <div class="status">Loading website previews...</div>
-    </div>
+    <div id="link-list" class="link-list"><div class="status">Loading website previews...</div></div>
 
 </div>
 
 
 
-<script>
-const sourceLinks = document.querySelectorAll(
-    "#source-links a"
-);
+<!-- SVG ACTION BUTTONS -->
+<div class="footer-actions">
+  <button class="footer-icon-btn" data-modal="historyModal" aria-label="History">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" 
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /><path d="M12 7v5l3 2" />
+    </svg>
+  </button>
+  <button class="footer-icon-btn" data-modal="bookmarkModal" aria-label="Bookmark">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 5.5A3.5 3.5 0 0 1 9.5 2h5A3.5 3.5 0 0 1 18 5.5v14.1c0 1.3-1.45 2.05-2.55 1.3l-2.6-1.75a1.5 1.5 0 0 0-1.7 0l-2.6 1.75C7.45 21.65 6 20.9 6 19.6V5.5z" />
+    </svg>
+  </button>
+</div>
 
+<!-- HISTORY OVERLAY -->
+<div class="footer-modal" id="historyModal" aria-hidden="true">
+  <div class="footer-modal-content" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <h3 id="historyTitle">History</h3>
+    <div id="history-list" class="modal-list"></div>
+  </div>
+</div>
+<!-- BOOKMARK OVERLAY -->
+<div class="footer-modal" id="bookmarkModal" aria-hidden="true">
+  <div class="footer-modal-content" role="dialog" aria-modal="true" aria-labelledby="bookmarkTitle">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <h3 id="bookmarkTitle">Bookmarks</h3>
+    <div id="bookmark-list" class="modal-list"></div>
+  </div>
+</div>
+
+<footer class="footer-note">
+    <!-- ◯ Beyond the URL: See What’s Inside -->
+    ◯ Beyond the URL: See What’s Waiting for You
+</footer>
+
+
+
+<script>
+const sourceLinks = document.querySelectorAll("#source-links a");
 const linkList = document.getElementById("link-list");
 const urlInput = document.getElementById("url-input");
 const previewBtn = document.getElementById("preview-btn");
 const searchFeedback = document.getElementById("search-feedback");
 
-// Prevent duplicate previews.
-const loadedUrls = new Set();
+const HISTORY_KEY = "beyondUrlHistory";
+const BOOKMARKS_KEY = "beyondUrlBookmarks";
+const MAX_HISTORY = 10;
 
-// Search debounce timer.
+const loadedUrls = new Set();
 let searchTimer = null;
 
-// Normalize and validate URL.
-function normalizeUrl(value) {
-
-    let url = value.trim();
-
-    if (!url) {
-        throw new Error("Please enter a website URL.");
+function readStorage(key) {
+    try {
+        const value = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(value) ? value : [];
+    } catch (error) {
+        console.warn("Unable to read saved data:", error);
+        return [];
     }
-    if (!/^https?:\/\//i.test(url)) {
-        url = "https://" + url;
-    }
-
-    const parsedUrl = new URL(url);
-
-    if (
-        !["http:", "https:"].includes(parsedUrl.protocol) ||
-        !parsedUrl.hostname.includes(".") &&
-        parsedUrl.hostname !== "localhost"
-    ) {
-        throw new Error("Please enter a valid website URL.");
-    }
-
-    return parsedUrl.href;
 }
-
+function writeStorage(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+    } catch (error) {
+        console.error("Unable to save data to localStorage:", error);
+        searchFeedback.textContent = "Browser storage is unavailable. Your changes may not be saved.";
+        searchFeedback.className = "search-feedback error";
+        return false;
+    }
+}
+function getHistory() {
+    return readStorage(HISTORY_KEY);
+}
+function getBookmarks() {
+    return readStorage(BOOKMARKS_KEY);
+}
+function saveHistory(url) {
+    const history = getHistory().filter(item => item.url !== url);
+    history.unshift({
+        url,
+        visitedAt: new Date().toISOString()
+    });
+    writeStorage(HISTORY_KEY, history.slice(0, MAX_HISTORY));
+    renderHistory();
+}
+function isBookmarked(url) {
+    return getBookmarks().some(item => item.url === url);
+}
+function toggleBookmark(data, button) {
+    const bookmarks = getBookmarks();
+    const existingIndex = bookmarks.findIndex(item => item.url === data.url);
+    const isSaved = existingIndex !== -1;
+    if (isSaved) {
+        bookmarks.splice(existingIndex, 1);
+    } else {
+        bookmarks.unshift({
+            url: data.url,
+            title: data.title || "Untitled Website",
+            description: data.description || "",
+            siteName: data.siteName || "",
+            image: data.image || "",
+            favicon: data.favicon || "",
+            savedAt: new Date().toISOString()
+        });
+    }
+    if (!writeStorage(BOOKMARKS_KEY, bookmarks)) return;
+    const nowSaved = !isSaved;
+    if (button) updateHeartButton(button, nowSaved);
+    if (document.getElementById("bookmarkModal")?.classList.contains("active")) {
+        renderBookmarks();
+    }
+}
+function updateHeartButton(button, liked) {
+    button.classList.toggle("liked", liked);
+    button.setAttribute("aria-pressed", String(liked));
+    button.setAttribute(
+        "aria-label",
+        liked ? "Remove from favorites" : "Add to favorites"
+    );
+}
 function createElement(tag, className, text) {
     const element = document.createElement(tag);
     if (className) element.className = className;
-    if (text !== undefined) {
-        element.textContent = text;
-    }
+    if (text !== undefined) element.textContent = text;
     return element;
 }
-
+function appendBookmarkButton(card, data) {
+    const heartButton = createElement("button", "card-heart-btn");
+    heartButton.type = "button";
+    heartButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+        </svg>
+    `;
+    updateHeartButton(heartButton, isBookmarked(data.url));
+    heartButton.addEventListener("click", () => {
+        toggleBookmark(data, heartButton);
+    });
+    card.appendChild(heartButton);
+}
 function createCard(data) {
     const card = createElement("article", "card");
-
-    // Image
-    const imageContainer = createElement(
-        "div",
-        "card-image"
-    );
-
+    const imageContainer = createElement("div", "card-image");
     if (data.image) {
-
         const image = createElement("img");
-
         image.src = data.image;
         image.alt = data.title || "Website preview";
         image.loading = "lazy";
         image.referrerPolicy = "no-referrer";
-
         image.onerror = () => {
             image.remove();
             if (data.favicon) {
@@ -354,9 +432,7 @@ function createCard(data) {
                 imageContainer.textContent = "No image available";
             }
         };
-
         imageContainer.appendChild(image);
-
     } else if (data.favicon) {
         const fallback = createElement("img");
         fallback.src = data.favicon;
@@ -365,73 +441,51 @@ function createCard(data) {
     } else {
         imageContainer.textContent = "No image available";
     }
-
-    // Content
-    const content = createElement(
-        "div",
-        "card-content"
-    );
-
-    const site = createElement(
-        "div",
-        "site-name"
-    );
-
+    const content = createElement("div", "card-content");
+    const site = createElement("div", "site-name");
     if (data.favicon) {
         const icon = createElement("img");
         icon.src = data.favicon;
         icon.alt = "";
         site.appendChild(icon);
     }
+    let hostname = data.url;
+    try {
+        hostname = new URL(data.url).hostname;
+    } catch (error) {}
     site.appendChild(
-        document.createTextNode(
-            data.siteName || new URL(data.url).hostname
-        )
+        document.createTextNode(data.siteName || hostname)
     );
-
     const title = createElement(
         "h2",
         "",
         data.title || "Untitled Website"
     );
-
     const description = createElement(
         "p",
         "",
         data.description || "No description available."
     );
-
     const button = createElement(
         "a",
         "visit-link",
-        " Visit here buddy"
-        // "◉ →"
+        "Visit here buddy"
     );
-
     button.href = data.url;
     button.target = "_blank";
     button.rel = "noopener noreferrer";
-
     content.append(site, title, description, button);
-
     card.append(imageContainer, content);
-
+    appendBookmarkButton(card, data);
     return card;
 }
-
-// Error card.
 function createErrorCard(url) {
-    const card = createElement("div", "card");
-    const content = createElement(
-        "div",
-        "card-content"
-    );
+    const card = createElement("article", "card");
+    const content = createElement("div", "card-content");
     content.appendChild(
         createElement("h2", "error", "Preview unavailable")
     );
-    content.appendChild(
-        createElement("p", "", url)
-    );
+    content.appendChild(createElement("p", "", url));
     content.appendChild(
         createElement(
             "p",
@@ -444,42 +498,29 @@ function createErrorCard(url) {
         "visit-link",
         "Visit here buddy"
     );
-
     button.href = url;
     button.target = "_blank";
     button.rel = "noopener noreferrer";
-
     content.appendChild(button);
     card.appendChild(content);
-
+    appendBookmarkButton(card, {
+        url,
+        title: "Preview unavailable",
+        description: "Website metadata could not be loaded.",
+        siteName: "",
+        image: "",
+        favicon: ""
+    });
     return card;
 }
-
-// Loading indicator.
 function createLoadingCard() {
-    const loading = createElement(
-        "div",
-        "loading-card"
-    );
-    const spinner = createElement(
-        "span",
-        "loader"
-    );
-    const message = createElement(
-        "span",
-        "",
-        ""
-        // ( "Fetching website preview..." ) -> eituk age dewa chilo loading circle animation hoitoh ar sathe ei text ta uttho
-    );
-
+    const loading = createElement("div", "loading-card");
+    const spinner = createElement("span", "loader");
+    const message = createElement("span", "", "");
     loading.append(spinner, message);
-
     return loading;
 }
-
-// Fetch preview from existing API.
 async function loadPreview(url) {
-
     try {
         const response = await fetch("/api/preview", {
             method: "POST",
@@ -488,7 +529,6 @@ async function loadPreview(url) {
             },
             body: JSON.stringify({ url })
         });
-
         if (!response.ok) {
             throw new Error("Unable to fetch preview");
         }
@@ -500,54 +540,55 @@ async function loadPreview(url) {
         return createErrorCard(url);
     }
 }
-
-// Display preview.
 async function addPreview(url) {
-
-    // Prevent duplicate URLs.
     if (loadedUrls.has(url)) {
         searchFeedback.textContent =
             "This Link has already been previewed :)";
         searchFeedback.className = "search-feedback";
         return;
     }
-
     loadedUrls.add(url);
+    saveHistory(url);
     searchFeedback.textContent = "";
     const loadingCard = createLoadingCard();
-
-    // NEW: Insert loading card at the top.
     linkList.prepend(loadingCard);
-
     previewBtn.disabled = true;
     previewBtn.textContent = "Loading...";
-
     try {
-
         const card = await loadPreview(url);
-
-        // NEW: Replace loading card at the same top position.
         loadingCard.replaceWith(card);
-
         urlInput.value = "";
-
         searchFeedback.textContent = "Website preview loaded successfully.";
         searchFeedback.className = "search-feedback";
-
     } catch (error) {
         loadedUrls.delete(url);
         loadingCard.remove();
         searchFeedback.textContent =
             "Something went wrong. Please try again.";
-        searchFeedback.className =
-            "search-feedback error";
+        searchFeedback.className = "search-feedback error";
     } finally {
         previewBtn.disabled = false;
         previewBtn.textContent = "Preview ◉";
     }
 }
-
-// Search function.
+function normalizeUrl(value) {
+    let url = value.trim();
+    if (!url) {
+        throw new Error("Please enter a website URL.");
+    }
+    if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
+    }
+    const parsedUrl = new URL(url);
+    if (
+        !["http:", "https:"].includes(parsedUrl.protocol) ||
+        (!parsedUrl.hostname.includes(".") &&
+        parsedUrl.hostname !== "localhost")
+    ) {
+        throw new Error("Please enter a valid website URL.");
+    }
+    return parsedUrl.href;
+}
 function searchPreview() {
     clearTimeout(searchTimer);
     try {
@@ -555,27 +596,117 @@ function searchPreview() {
         addPreview(url);
     } catch (error) {
         searchFeedback.textContent = error.message;
-        searchFeedback.className =
-            "search-feedback error";
+        searchFeedback.className = "search-feedback error";
     }
 }
 
-// Instant preview when a valid URL is pasted or typed.
+// History modal content: latest 10 submitted URLs.
+function renderHistory() {
+    const historyList = document.getElementById("history-list");
+    if (!historyList) return;
+    historyList.replaceChildren();
+    const history = getHistory();
+    if (!history.length) {
+        historyList.appendChild(
+            createElement("div", "empty-state", "Your browsing history will appear here.")
+        );
+        return;
+    }
+    history.forEach(item => {
+        const row = createElement("div", "history-item");
+        const link = createElement("a", "", item.url);
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        const date = createElement(
+            "small",
+            "",
+            item.visitedAt
+                ? new Date(item.visitedAt).toLocaleString()
+                : ""
+        );
+        // link.appendChild(date);
+        // row.appendChild(link);
+        // historyList.appendChild(row);
+
+        row.appendChild(link);
+        row.appendChild(date);
+        historyList.appendChild(row);
+    });
+}
+
+// Create the compact list-card used only inside the Bookmarks modal.
+function createBookmarkCard(data) {
+    const card = createElement("article", "bookmark-card");
+    const imageContainer = createElement("div", "card-image");
+
+    if (data.image || data.favicon) {
+        const image = createElement("img");
+        image.src = data.image || data.favicon;
+        image.alt = data.title || "Saved website";
+        image.loading = "lazy";
+        image.referrerPolicy = "no-referrer";
+        image.onerror = () => {
+            if (data.favicon && image.src !== data.favicon) {
+                image.src = data.favicon;
+            } else {
+                image.remove();
+                imageContainer.textContent = "No image";
+            }
+        };
+        imageContainer.appendChild(image);
+    } else {
+        imageContainer.textContent = "No image";
+    }
+    const content = createElement("div", "card-content");
+    const title = createElement("h2", "", data.title || "Untitled Website");
+    const actions = createElement("div", "bookmark-actions");
+    const visitLink = createElement("a", "visit-link", "Visit here buddy");
+    visitLink.href = data.url;
+    visitLink.target = "_blank";
+    visitLink.rel = "noopener noreferrer";
+    actions.appendChild(visitLink);
+    content.append(title, actions);
+    card.append(imageContainer, content);
+    appendBookmarkButton(card, data);
+    actions.appendChild(card.querySelector(".card-heart-btn"));
+    return card;
+}
+
+// Bookmark modal content.
+function renderBookmarks() {
+    const bookmarkList = document.getElementById("bookmark-list");
+    if (!bookmarkList) return;
+    bookmarkList.replaceChildren();
+    const bookmarks = getBookmarks();
+    if (!bookmarks.length) {
+        bookmarkList.appendChild(
+            createElement("div", "empty-state", "Your saved bookmarks will appear here.")
+        );
+        return;
+    }
+    bookmarks.forEach(item => {
+        bookmarkList.appendChild(createBookmarkCard(item));
+    });
+}
+function renderModal(modal) {
+    if (modal.id === "historyModal") renderHistory();
+    if (modal.id === "bookmarkModal") renderBookmarks();
+}
+
+// Instant preview while typing a valid URL.
 urlInput.addEventListener("input", () => {
     clearTimeout(searchTimer);
     searchFeedback.textContent = "";
     searchFeedback.className = "search-feedback";
-
     if (!urlInput.value.trim()) return;
     searchTimer = setTimeout(() => {
-
         try {
             const url = normalizeUrl(urlInput.value);
             if (!loadedUrls.has(url)) {
                 addPreview(url);
             }
         } catch (error) {
-
             // Wait until the URL becomes valid.
         }
     }, 450);
@@ -584,37 +715,29 @@ urlInput.addEventListener("input", () => {
 // Immediate preview on paste.
 urlInput.addEventListener("paste", () => {
     clearTimeout(searchTimer);
-    setTimeout(() => {
 
+    setTimeout(() => {
         if (urlInput.value.trim()) {
             searchPreview();
         }
-
     }, 0);
 });
 
-// Preview button.
-previewBtn.addEventListener(
-    "click",
-    searchPreview
-);
-
-// Enter key support.
-urlInput.addEventListener("keydown", (event) => {
+previewBtn.addEventListener("click", searchPreview);
+urlInput.addEventListener("keydown", event => {
     if (event.key === "Enter") {
         searchPreview();
     }
 });
 
-// NEW: Automatically select the entire URL on mouse hover.
+// Auto-select the complete URL when the pointer enters the input.
 urlInput.addEventListener("mouseenter", () => {
     if (urlInput.value.trim()) {
         urlInput.select();
     }
-
 });
 
-// Load original HTML links.
+// Load original HTML links in their existing order.
 async function initializeViewer() {
     const links = [...sourceLinks];
     linkList.innerHTML = "";
@@ -624,27 +747,66 @@ async function initializeViewer() {
         );
         return;
     }
-
-    // Preserve original URL order.
     const urls = links.map(link => link.href);
     urls.forEach(url => loadedUrls.add(url));
+
     const results = await Promise.all(
         urls.map(url => loadPreview(url))
     );
     results.forEach(card => {
         linkList.appendChild(card);
     });
-
 }
 
 initializeViewer();
 </script>
 
-
-<footer class="footer-note">
-    <!-- ◯ Beyond the URL: See What’s Inside -->
-    ◯ Beyond the URL: See What’s Waiting for You
-</footer>
+<!--((( SVG Action btn JavaScript -->
+<script>
+(() => {
+    const buttons = document.querySelectorAll(".footer-icon-btn");
+    const modals = document.querySelectorAll(".footer-modal");
+    let activeModal = null;
+    let previousFocus = null;
+    function openModal(modal) {
+        if (activeModal) closeModal();
+        activeModal = modal;
+        previousFocus = document.activeElement;
+        if (typeof renderModal === "function") {
+            renderModal(modal);
+        }
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        modal.querySelector(".modal-close").focus();
+    }
+    function closeModal() {
+        if (!activeModal) return;
+        const modal = activeModal;
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        activeModal = null;
+        document.body.style.overflow = "";
+        if (previousFocus) previousFocus.focus();
+    }
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const modal = document.getElementById(button.dataset.modal);
+            if (modal) openModal(modal);
+        });
+    });
+    modals.forEach(modal => {
+        modal.querySelector(".modal-close")
+            .addEventListener("click", closeModal);
+        modal.addEventListener("click", event => {
+            if (event.target === modal) closeModal();
+        });
+    });
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeModal();
+    });
+})();
+</script>
 
 </body>
 </html>
